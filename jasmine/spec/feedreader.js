@@ -94,12 +94,13 @@ $(function() {
 
     //This test suite covers switching between feeds
     describe('New Feed Selection', () => {
-        //A boolean flag that indicates whether another feed has loaded or not
-        let isLoaded = false;
+        let firstFeed;
+        let secondFeed;
         beforeEach((done) => {
             loadFeed(0, () => {
+                firstFeed = document.querySelector('.feed').innerHTML;
                 loadFeed(1, () => {
-                    isLoaded = true;
+                    secondFeed = document.querySelector('.feed').innerHTML;
                     //This was the only place that done made the test pass
                     done();
                 });
@@ -108,7 +109,7 @@ $(function() {
         
         //This test checks if the content loads when you switch from one feed to the other
         it('changes content when new feed is loaded', (done) => {
-            expect(isLoaded).toBe(true);
+            expect(secondFeed).not.toBe(firstFeed);
             done();
         });
     });
