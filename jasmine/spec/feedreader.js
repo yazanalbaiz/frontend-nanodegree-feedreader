@@ -76,8 +76,11 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('should be hidden by default', () => {
+            //Declare a boolean flag and init it
             let flag = false;
+            //Check whether it is hidden by default
             if(document.body.classList.contains('menu-hidden')) {
+                //Set the flag to true if it is hidden
                 flag = true;
             }
             expect(flag).toBe(true);
@@ -89,18 +92,15 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('should toggle when clicked', () => {
-            const flag = () => {
-                return document.body.classList.contains('menu-hiddden');
-            };
-            /* TO-DO:
-            * - Check that DOM is loaded
-            */
-            expect(flag()).toBe(false);
-            /* TO-DO:
-            * - Check it's been toggled after clicked
-            */
-            expect(flag()).toBe(true);
-         });
+            //Hold the icon in a varible
+            const icon = document.querySelector('.menu-icon-link');
+            //Simulate a click event using the .click() native in JS not the jQuery one (I don't believe in jQuery)
+            icon.click();
+            expect(document.body.classList.contains('menu-hidden')).toBe(false);
+            //Simulate again
+            icon.click();
+            expect(document.body.classList.contains('menu-hidden')).toBe(true);
+        });
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
