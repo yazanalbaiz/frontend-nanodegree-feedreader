@@ -2,6 +2,7 @@ Yazan's Arcade Game
 ===============================
 For my fourth project at Udacity, I was required to test the functionality of a Feed Reader using the Jasmine framework.
 I wrote the required tests and test suites following the given rubric and rules.
+
 ![RSS Icon](https://seeklogo.com/images/R/rss-icon-logo-025B789EB6-seeklogo.com.png)
 
 -----
