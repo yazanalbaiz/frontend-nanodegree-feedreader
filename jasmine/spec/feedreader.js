@@ -84,10 +84,9 @@ $(function() {
         
         //This test checks that there is at least one entry in a feed
         it('has at least one entry', (done) => {
-            const feedContainer = document.querySelector('.feed');
-            const entry0 = document.querySelector('.entry-link') || null;
-
-            expect(entry0).not.toBe(null);
+            const entries = document.querySelector('.feed').querySelectorAll('.entry');
+            
+            expect(entries.length).toBeGreaterThan(0);
             done();
         });
     });
