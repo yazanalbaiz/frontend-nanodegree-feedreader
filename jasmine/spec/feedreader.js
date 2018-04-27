@@ -85,7 +85,6 @@ $(function() {
             }
             expect(flag).toBe(true);
         });
-
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
@@ -95,6 +94,7 @@ $(function() {
             //Hold the icon in a varible
             const icon = document.querySelector('.menu-icon-link');
             //Simulate a click event using the .click() native in JS not the jQuery one (I don't believe in jQuery)
+            //Credit goes to ruba from the uconnectsaudi slack for hinting this function at me
             icon.click();
             expect(document.body.classList.contains('menu-hidden')).toBe(false);
             //Simulate again
@@ -105,21 +105,48 @@ $(function() {
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', () => {
+        //Ripped the syntax off the testing course
+        beforeEach((done) => {
+            loadFeed(0, () => {
+                done();
+            })
+        });
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        it('has at least one entry', (done) => {
+            const feedContainer = document.querySelector('.feed');
+            const entry0 = document.querySelector('.entry-link') || null;
+
+            expect(entry0).not.toBe(null);
+            done();
+        });
     });
         
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', () => {
+        //A boolean flag that indicates whether another feed has loaded or not
+        let isLoaded = false;
+        beforeEach((done) => {
+            loadFeed(0, () => {
+                loadFeed(1, () => {
+                    isLoaded = true;
+                    //This was the only place that done made the test pass
+                    done();
+                });
+            })
+        });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        it('changes content when new feed is loaded', () => {
+            expect(isLoaded).toBe(true);
+        });
     });
     
 }());
