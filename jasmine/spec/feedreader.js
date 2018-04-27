@@ -45,8 +45,7 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
+    //This test suite covers the functionality of the menu nav 
     describe('The menu', () => {
         //This test checks that the menu nav is hidden by default
         it('should be hidden by default', () => {
@@ -73,8 +72,8 @@ $(function() {
             expect(document.body.classList.contains('menu-hidden')).toBe(true);
         });
     });
-
-    /* TODO: Write a new test suite named "Initial Entries" */
+    
+    //This test suite covers the initial feed and it's entries
     describe('Initial Entries', () => {
         //Ripped the syntax off the testing course
         beforeEach((done) => {
@@ -94,7 +93,7 @@ $(function() {
     });
         
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    //This test suite covers switching between feeds
     describe('New Feed Selection', () => {
         //A boolean flag that indicates whether another feed has loaded or not
         let isLoaded = false;
