@@ -146,6 +146,7 @@ $(function() {
          */
         it('changes content when new feed is loaded', () => {
             expect(isLoaded).toBe(true);
+            done();
         });
     });
     
