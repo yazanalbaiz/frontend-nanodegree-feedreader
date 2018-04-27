@@ -144,7 +144,7 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('changes content when new feed is loaded', () => {
+        it('changes content when new feed is loaded', (done) => {
             expect(isLoaded).toBe(true);
             done();
         });
