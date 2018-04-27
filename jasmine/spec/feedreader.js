@@ -89,6 +89,17 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('should toggle when clicked', () => {
+            const flag = () => {
+                return document.body.classList.contains('menu-hiddden');
+            };
+            /* TO-DO:
+            * - Check that DOM is loaded
+            */
+            expect(flag()).toBe(false);
+            /* TO-DO:
+            * - Check it's been toggled after clicked
+            */
+            expect(flag()).toBe(true);
          });
 
     /* TODO: Write a new test suite named "Initial Entries" */
