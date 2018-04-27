@@ -77,13 +77,10 @@ $(function() {
          */
         it('should be hidden by default', () => {
             let flag = false;
-            document.addEventListener('DOMContentLoaded', () => {
-                let body = document.getElementsByTagName('body')[0];
-
-                if(body.classList.contains('menu-hidden')) {
-                    flag = true;
-                }
-            });
+            if(document.body.classList.contains('menu-hidden')) {
+                console.log('hi');
+                flag = true;
+            }
             expect(flag).toBe(true);
         });
 
@@ -92,6 +89,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+         
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
