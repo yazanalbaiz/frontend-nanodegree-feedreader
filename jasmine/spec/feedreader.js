@@ -27,54 +27,28 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
+        //This test checks if the feeds have URLs
         it('has all URLs defined', () => {
-            let flag;
-
             for(feed of allFeeds){
-                if(feed.url === ''){
-                    flag = false;
-                    break;
-                }
-                flag = true;
+                expect(feed.url).toBeDefined();
+                expect(feed.url).not.toBe('');
             }
-
-            expect(flag).toBeDefined();
-            expect(flag).toBe(true);
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
+        //This test checks that all feeds have names
         it('has all names defined', () => {
-            let flag;
-
             for(feed of allFeeds) {
-                if(feed.name === '') {
-                    flag = false;
-                    break;
-                }
-                flag = true;
+                expect(feed.name).toBeDefined();
+                expect(feed.name).not.toBe('');
             }
-
-            expect(flag).toBeDefined();
-            expect(flag).toBe(true);
         });
     });
 
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', () => {
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
+        //This test checks that the menu nav is hidden by default
         it('should be hidden by default', () => {
             //Declare a boolean flag and init it
             let flag = false;
@@ -85,11 +59,8 @@ $(function() {
             }
             expect(flag).toBe(true);
         });
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+         
+        //This test checks if the menu nav opens and closes when clicked
          it('should toggle when clicked', () => {
             //Hold the icon in a varible
             const icon = document.querySelector('.menu-icon-link');
@@ -111,12 +82,8 @@ $(function() {
                 done();
             })
         });
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+        
+        //This test checks that there is at least one entry in a feed
         it('has at least one entry', (done) => {
             const feedContainer = document.querySelector('.feed');
             const entry0 = document.querySelector('.entry-link') || null;
@@ -140,10 +107,8 @@ $(function() {
                 });
             })
         });
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+        
+        //This test checks if the content loads when you switch from one feed to the other
         it('changes content when new feed is loaded', (done) => {
             expect(isLoaded).toBe(true);
             done();
